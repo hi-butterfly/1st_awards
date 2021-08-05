@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>141.world</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2VPG8G7H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QX2VPG8G7H');
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">    
+    <link rel="stylesheet" href="main.css">
+</head>
+
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart='return false'>
+    <!-- header -->
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+          <a href="#" class="ui header item">
+            141.world
+          </a>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="ui main container">
+        <h1 class="ui center aligned header">1st 금손 어워즈 뷰어</h1>
+
+        <div class="ui pointing secondary menu">
+            <a class="item active" data-tab="first">헤어</a>
+            <a class="item" data-tab="second">성형</a>
+            <a class="item" data-tab="third">의상</a>
+            <a class="item" data-tab="fourth">펫</a>
+            <a class="item final" data-tab="fifth">결과 & 찜목록</a>
+            <div class="right menu">
+                <div class="item" id="dev" data-html="<img class='ui medium image' src='https://maple.loona.world/hj.gif'>">
+                © Dev by 무명의&nbsp;<a href="https://namu.wiki/w/%EC%A0%84%ED%9D%AC%EC%A7%84" target="_blank">희진이</a>팬
+                </div>
+            </div>
+        </div>
+
+        <div class="ui bottom attached tab segment active" data-tab="first">
+            <div class="ui massive horizontal divided list" id="hair">
+            </div>
+        </div>
+        
+        <div class="ui tab segment" data-tab="second">
+          <div class="ui massive horizontal divided list" id="face">
+          </div>
+        </div>
+
+        <div class="ui bottom attached tab segment" data-tab="third">
+            <div class="ui massive horizontal divided list" id="clothes">
+            </div>
+        </div>
+
+        <div class="ui bottom attached tab segment" data-tab="fourth">
+          <div class="ui massive horizontal divided list" id="pet">
+          </div>
+        </div>
+
+        <div class="ui bottom attached tab segment" data-tab="fifth">
+            <div class="ui container">
+              <h2 class="ui header">
+                준비중!
+              </h2>
+              - 본 사이트는 메이플스토리 금손 어워즈의 뷰어이며, 모든 저작권은 각 이미지별 저작권자에게 있습니다
+              <br>- 본 사이트는 공정한 투표를 위해 모든 항목을 랜덤순으로 정렬하며, 절대 임의 조작하지 않습니다.
+              <br>- 본 사이트로 어떠한 이익도 창출하지 않으며, 모든 소스코드는 <a href="https://github.com/Jeongsj/1st_awards" target="_blank">이곳</a>에서 확인하실 수 있습니다.
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
