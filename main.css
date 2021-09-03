@@ -84,3 +84,11 @@ div.ui.massive.horizontal.divided.list > div.item > div.description {
     width: 100%;
     line-height: 200%;
 }
+
+@media only screen and (max-width: 768px) {
+    .ui.ui.ui.container:not(.fluid) {
+        width: auto;
+        margin-left: 0.7em;
+        margin-right: 0.7em;
+    }
+}
