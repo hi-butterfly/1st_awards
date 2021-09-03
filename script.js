@@ -16,7 +16,7 @@ jQuery.fn.serializeObject = function () {
     return obj;
 }
 
-function numberWithCommas(x) {
+function nc(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
@@ -26,18 +26,33 @@ function addRes(i, j) {
     a.children().eq(0).removeAttr('onclick');
     a.children().eq(1).remove();
     $('#' + j).append(a);
+    updatePrice();
 }
 
 function cancelRes(i, j) {
     $('#' + j + ' #' + i).remove();
     $('#' + i).dimmer('hide');
+    updatePrice();
+}
+
+function updatePrice() {
+    var a = $('#hair2').children().length;
+    var b = $('#face2').children().length;
+    var c = $('#clothes2').children().length;
+    var d = $('#pet2').children().length;
+    $('#price1').html(`헤어 ${nc(a*5500)}원`);
+    $('#price2').html(`성형 ${nc(b*3500)}원`);
+    $('#price3').html(`의상 ${nc(c*9900)}원`);
+    $('#price4').html(`펫 ${nc(d*9900)}원`);
+    var sum = (a*5500)+(b*3500)+(c*9900)+(d*9900);
+    $('#priceSum').html(`총 ${nc(sum)}원`);
 }
 
 $(document).ready(function() {
     /* init */
     $('.menu .item').tab();
     $(".final").click(function(){
-        getResult()
+        updatePrice();
     });
     $('#dev').popup({
         on: 'hover',
