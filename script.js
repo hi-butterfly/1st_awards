@@ -1,3 +1,5 @@
+var API_URL = 'https://dncbque9l0.execute-api.ap-northeast-2.amazonaws.com/default/';
+
 function nc(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -9,12 +11,29 @@ function addRes(i, j) {
     a.children().eq(1).remove();
     $('#' + j).append(a);
     updatePrice();
+    $.get({
+        url: API_URL+String(i),
+        async: false,
+        contentType: "application/json",
+        success: function (data) {
+           console.log(`success ${i}`);
+        }
+    });
 }
 
 function cancelRes(i, j) {
     $('#' + j + ' #' + i).remove();
     $('#' + i).dimmer('hide');
     updatePrice();
+    $.ajax({
+        type: "DELETE",
+        url: API_URL+String(i),
+        async: false,
+        contentType: "application/json",
+        success: function (data) {
+           console.log(`delete ${i}`);
+        }
+    });
 }
 
 function updatePrice() {
