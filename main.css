@@ -85,6 +85,12 @@ div.ui.massive.horizontal.divided.list > div.item > div.description {
     line-height: 200%;
 }
 
+.ui.desc {
+    font-size: 0.9em;
+    color: lightgray !important;
+    font-family: sans-serif !important;
+}
+
 @media only screen and (max-width: 768px) {
     .ui.ui.ui.container:not(.fluid) {
         width: auto;
