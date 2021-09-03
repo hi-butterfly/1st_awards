@@ -56,7 +56,7 @@ $(document).ready(function() {
     });
     $('#dev').popup({
         on: 'hover',
-        position: 'bottom right'
+        position: 'bottom center'
     });
     $('img').popup({
         on: 'hover',
