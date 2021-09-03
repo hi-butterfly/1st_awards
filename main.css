@@ -39,3 +39,32 @@ div.ui.massive.horizontal.divided.list > div.item > div.description {
     text-overflow: ellipsis;
     color:lightseagreen
 }
+
+
+#hair > div.item:nth-child(-n+6) > .meta {
+    background-color: yellow;
+    color: rgb(160, 139, 139) !important;
+    text-align: center;
+}
+
+#face > div.item:nth-child(-n+6) > .meta {
+    background-color: yellow;
+    color: rgb(160, 139, 139) !important;
+    text-align: center;
+}
+
+#clothes > div.item:nth-child(-n+12) > .meta {
+    background-color: yellow;
+    color: rgb(160, 139, 139) !important;
+    text-align: center;
+}
+
+#pet > div.item:nth-child(-n+6) > .meta {
+    background-color: yellow;
+    color: rgb(160, 139, 139) !important;
+    text-align: center;
+}
+
+.item {
+    text-align: center;
+}
