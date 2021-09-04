@@ -25,7 +25,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -132,7 +132,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 총 찜 목록 수 (Today)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">15,071회</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card1">15,071회</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -150,7 +150,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 1인당 평균 금액</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">83,793원</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card2">83,793원</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -197,7 +197,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 집계 기준일</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2021-09-04 19시</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card4">2021-09-04 19시</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -505,6 +505,16 @@
                 "order": [],
                 "searching": false
             });
+        });
+
+        function nc(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        $.getJSON('db_json/info.json', function(items){
+            $('#card1').text(nc(items.sum_cnt)+'명');
+            $('#card2').text(nc(items.price)+'원');
+            $('#card4').text(items.time);
         });
     </script>
 
