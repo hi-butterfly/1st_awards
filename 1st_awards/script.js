@@ -60,6 +60,8 @@ function updatePrice() {
     var sum = (a*5500)+(b*3500)+(c*9900)+(d*9900);
     $('#priceSum').html(`총 ${nc(sum)}원`);
     if (sum==0) return null;
+    if (sum<83793) $('#info_price').html(`평균보다 ${nc(83793-sum)}원 더 아꼈어요! <a href="../analytics" target="_blank">자세히 보기</a>`);
+    else $('#info_price').html(`평균보다 ${nc(sum-83793)}원 더 flex했어요! <a href="../analytics" target="_blank">자세히 보기</a>`);
     return sum
 }
 
