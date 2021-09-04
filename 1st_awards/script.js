@@ -59,6 +59,7 @@ function updatePrice() {
     $('#price4').html(`펫 ${nc(d*9900)}원`);
     var sum = (a*5500)+(b*3500)+(c*9900)+(d*9900);
     $('#priceSum').html(`총 ${nc(sum)}원`);
+    if (sum==0) return null;
     return sum
 }
 
@@ -93,6 +94,11 @@ $(document).ready(function() {
 });
 
 $(window).bind('beforeunload', function(){
+    if ( !updatePrice() ) {
+        console.log('null');
+        $(window).off("beforeunload");
+        return null;
+    }
     $.post({
         url: "https://vbxq616ffh.execute-api.ap-northeast-2.amazonaws.com/v1/awards1_analytics",
         data: JSON.stringify(updateFinal()),
@@ -110,13 +116,13 @@ $.getJSON('./assets/json/rank_hair.json', function(items){
 });
 $.getJSON('./assets/json/rank_face.json', function(items){
     $.each(items, function(i, item){
-        $("#face").append(`<div class="item" id="${item.i}"><img class="ui image" src="./assets/img/face/${item.i}.png" onclick="addRes(${item.i}, 1)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 1);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/2/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
+        $("#face").append(`<div class="item" id="${item.i}"><img class="ui image" loading="lazy" src="./assets/img/face/${item.i}.png" onclick="addRes(${item.i}, 1)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 1);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/2/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
 });
 $.getJSON('./assets/json/rank_clothes.json', function(items){
     $.each(items, function(i, item){
-        $("#clothes").append(`<div class="item" id="${item.i}"><img class="ui image" src="./assets/img/clothes/${item.i}.png" onclick="addRes(${item.i}, 2)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 2);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/3/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
+        $("#clothes").append(`<div class="item" id="${item.i}"><img class="ui image" loading="lazy" src="./assets/img/clothes/${item.i}.png" onclick="addRes(${item.i}, 2)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 2);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/3/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
     });
 $.getJSON('./assets/json/rank_pet.json', function(items){
     $.each(items, function(i, item){
-        $("#pet").append(`<div class="item" id="${item.i}"><img class="ui image" src="./assets/img/pet/${item.i}.png" onclick="addRes(${item.i}, 3)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 3);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/4/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
+        $("#pet").append(`<div class="item" id="${item.i}"><img class="ui image" loading="lazy" src="./assets/img/pet/${item.i}.png" onclick="addRes(${item.i}, 3)"><div class="ui top aligned dimmer"> <div class="content"> <h2 class="ui inverted header" style="color:white;">찜!</h2><br/> <div class="mini ui red button" onclick="cancelRes(${item.i}, 3);">취소</div></div> </div><div class="meta"><a href="https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/4/${item.i}/141" target="_blank">${item.title}</a></div><div class="description">${item.user}</div><div class="description">${item.rank}위/${item.cnt}표</div> </div>`);    });
 });
